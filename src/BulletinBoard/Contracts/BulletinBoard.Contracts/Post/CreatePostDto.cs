@@ -3,6 +3,9 @@ using BulletinBoard.Contracts.Attributes;
 
 namespace BulletinBoard.Contracts.Post;
 
+/// <summary>
+/// Создание объявления.
+/// </summary>
 public class CreatePostDto
 {
     /// <summary>

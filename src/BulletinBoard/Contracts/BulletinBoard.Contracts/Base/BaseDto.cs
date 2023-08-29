@@ -1,8 +1,9 @@
 ﻿namespace BulletinBoard.Contracts.Base
-   /// <summary>
-   /// Базовый контракт.
-   /// </summary>
+
 {
+    /// <summary>
+    /// Базовый контракт.
+    /// </summary>
     public class BaseDto
     {
         /// <summary>
