@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>9f53da3a-ff9c-4891-ab22-4c6d21ed9e05</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>..\..\..\..\..</DockerfileContext>
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <DocumentationFile>BulletinBoard.Hosts.Api.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="BulletinBoard.Hosts.Api.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="BulletinBoard.Hosts.Api.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.8" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.19.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\BulletinBoard.Application\BulletinBoard.Application.AppServices.csproj" />
+    <ProjectReference Include="..\..\Contracts\BulletinBoard.Contracts\BulletinBoard.Contracts.csproj" />
+    <ProjectReference Include="..\..\Infrastructure\BulletinBoard.Infrastructure.DataAccess\BulletinBoard.Infrastructure.DataAccess.csproj" />
+  </ItemGroup>
+
+</Project>

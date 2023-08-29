@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BulletinBoard.Hosts.Api</name>
+    </assembly>
+    <members>
+        <member name="T:BulletinBoard.Hosts.Api.Controllers.PostController">
+            <summary>
+            Контроллер для работы с объявлениями.
+            </summary>
+        </member>
+        <member name="M:BulletinBoard.Hosts.Api.Controllers.PostController.#ctor(BulletinBoard.Application.AppServices.Contexts.Post.Services.IPostService)">
+            <summary>
+            Инициализирует экзепляр <see cref="T:BulletinBoard.Hosts.Api.Controllers.PostController"/>
+            </summary>
+            <param name="postService">Сервис работы с объявлениями.</param>
+        </member>
+        <member name="M:BulletinBoard.Hosts.Api.Controllers.PostController.GetByIdAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Получает объявление по идентификатору.
+            </summary>
+            <remarks>
+            Пример:
+            curl -XGET http://host:port/post/get-by-id
+            </remarks>
+            <param name="id">Идентификатор объявления.</param>
+            <param name="cancellationToken">Отмена операции.</param>
+            <returns>Модель объявления.<see cref="T:BulletinBoard.Contracts.Post.PostDto"/></returns>
+        </member>
+        <member name="M:BulletinBoard.Hosts.Api.Controllers.PostController.GetAllAsync(System.Threading.CancellationToken,System.Int32,System.Int32)">
+            <summary>
+            Возращает постраничные объявления.
+            </summary>
+            <param name="cancellationToken">Отмена операции.</param>
+            <param name="pageSize">Размер страницы.</param>
+            <param name="pageIndex">Индекс страницы.</param>
+            <returns>Коллекция объвлений.<see cref="T:BulletinBoard.Contracts.Post.PostDto"/></returns>
+        </member>
+        <member name="M:BulletinBoard.Hosts.Api.Controllers.PostController.CreateAsync(BulletinBoard.Contracts.Post.CreatePostDto,System.Threading.CancellationToken)">
+            <summary>
+            Создает объявления.
+            </summary>
+            <param name="cancellationToken">Отмена операции.</param>
+        </member>
+        <member name="M:BulletinBoard.Hosts.Api.Controllers.PostController.UpdateAsync(BulletinBoard.Contracts.Post.PostDto,System.Threading.CancellationToken)">
+            <summary>
+            Редактируем объвления.
+            </summary>
+            <param name="cancellationToken">Отмена операции.</param>
+        </member>
+        <member name="M:BulletinBoard.Hosts.Api.Controllers.PostController.DeleteAsync(System.Guid,System.Threading.CancellationToken)">
+            <summary>
+            Удаляем объвления по идентификатору.
+            </summary>
+            <param name="id">Идентификатор объявления.</param>
+            <param name="cancellationToken">Отмена операции.</param>
+        </member>
+    </members>
+</doc>
