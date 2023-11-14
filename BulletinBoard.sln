@@ -35,6 +35,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BulletinBoard.Infrastructur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BulletinBoard.Hosts.Api", "src\BulletinBoard\Hosts\BulletinBoard.Hosts.Api\BulletinBoard.Hosts.Api.csproj", "{751E03B1-0EB4-41A7-BFCB-9CFBD8CEDE1F}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BulletinBoard.Hosts.Migrations", "src\BulletinBoard\Hosts\BulletinBoard.Hosts.Migrations\BulletinBoard.Hosts.Migrations.csproj", "{67DDF199-554C-4F38-B256-28CC9B2836D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -73,6 +75,10 @@ Global
 		{751E03B1-0EB4-41A7-BFCB-9CFBD8CEDE1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{751E03B1-0EB4-41A7-BFCB-9CFBD8CEDE1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{751E03B1-0EB4-41A7-BFCB-9CFBD8CEDE1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67DDF199-554C-4F38-B256-28CC9B2836D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67DDF199-554C-4F38-B256-28CC9B2836D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67DDF199-554C-4F38-B256-28CC9B2836D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67DDF199-554C-4F38-B256-28CC9B2836D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,6 +99,7 @@ Global
 		{2D83DF5A-7796-47BE-B1B6-FE030B82EB75} = {EC68DF48-CCF0-498B-BEF5-E1FB18DD75C1}
 		{5CC603FD-1703-46AA-8359-8F3C3C8351DA} = {EC68DF48-CCF0-498B-BEF5-E1FB18DD75C1}
 		{751E03B1-0EB4-41A7-BFCB-9CFBD8CEDE1F} = {2ABF43B0-47AC-403F-95EF-63B8501393AE}
+		{67DDF199-554C-4F38-B256-28CC9B2836D7} = {2ABF43B0-47AC-403F-95EF-63B8501393AE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F4DA2457-7199-48DF-B13B-640E6DA3836A}

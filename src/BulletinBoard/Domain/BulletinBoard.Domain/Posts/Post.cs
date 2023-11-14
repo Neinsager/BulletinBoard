@@ -1,4 +1,8 @@
-﻿using BulletinBoard.Domain.Base;
+﻿using BulletinBoard.Domain.Attachments;
+using BulletinBoard.Domain.Base;
+using BulletinBoard.Domain.Categories;
+using BulletinBoard.Domain.Comments;
+using BulletinBoard.Domain.Users;
 
 namespace BulletinBoard.Domain.Posts
 {
@@ -18,18 +22,38 @@ namespace BulletinBoard.Domain.Posts
         public string Description { get; set; }
 
         /// <summary>
+        /// Категория.
+        /// </summary>
+        public virtual Category Category { get; set; }
+
+        /// <summary>
+        /// Идентификатор категории.
+        /// </summary>
+        public Guid CategoryId { get; set; }
+
+        /// <summary>
         /// Цена.
         /// </summary>
         public decimal Price { get; set; }
 
         /// <summary>
-        /// Наименование тегов.
+        /// Вложения.
         /// </summary>
-        public string[] TagNames { get; set; }
+        public virtual ICollection<Attachment> Attachments { get; set; }
 
         /// <summary>
-        /// Наименование категории.
+        /// Комментарии.
         /// </summary>
-        public Guid CategoryId { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
+
+        /// <summary>
+        /// Идентификатор пользователя.
+        /// </summary>
+        public Guid UserId { get; set; }
+
+        /// <summary>
+        /// Пользователь.
+        /// </summary>
+        public virtual User User { get; set; }
     }
 }

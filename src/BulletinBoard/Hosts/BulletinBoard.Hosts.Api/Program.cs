@@ -1,9 +1,4 @@
-using BulletinBoard.Application.AppServices.Contexts.Post.Repositories;
-using BulletinBoard.Application.AppServices.Contexts.Post.Services;
-using BulletinBoard.Contracts;
-using BulletinBoard.Contracts.Post;
-using BulletinBoard.Hosts.Api.Controllers;
-using BulletinBoard.Infrastructure.DataAccess.Contexts.Post.Repositories;
+using System.Text.Json.Serialization;
 
 namespace BulletinBoard.Hosts.Api
 {
@@ -13,31 +8,34 @@ namespace BulletinBoard.Hosts.Api
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
+            builder.Services.AddAuth(builder);
 
-            builder.Services.AddControllers();
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-            builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen(s =>
+            builder.Services.AddMapper();
+
+            builder.Services.AddMemoryCaching();
+
+            builder.Services.AddHttpContextAccessor();
+
+            builder.Services.AddServices();
+
+            builder.Services.AddRepositories();
+
+            builder.Services.AddDbContextConfiguration();
+
+            builder.Services.AddControllers().AddJsonOptions(options =>
             {
-                var includeDocsTypesMarker = new[]
-                {
-                    typeof(PostDto),
-                    typeof(PostController)
-                };
-
-                foreach (var marker in includeDocsTypesMarker)
-                {
-                    var xmlName = $"{marker.Assembly.GetName().Name}.xml";
-                    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlName);
-
-                    if(File.Exists(xmlPath))
-                        s.IncludeXmlComments(xmlPath);
-                }
+                options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
             });
 
-            builder.Services.AddTransient<IPostService, PostService>();
-            builder.Services.AddTransient<IPostRepository, PostRepository>();
+            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+            builder.Services.AddEndpointsApiExplorer();
+
+            builder.Services.AddSwaggerGen(options =>
+            {
+                options.AddSwaggerDoc();
+                options.AddXmlDoc();
+                options.AddSecurity();
+            });
 
             var app = builder.Build();
 
@@ -50,8 +48,8 @@ namespace BulletinBoard.Hosts.Api
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
-
 
             app.MapControllers();
 
